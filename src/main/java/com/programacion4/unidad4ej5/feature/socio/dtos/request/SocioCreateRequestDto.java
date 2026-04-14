@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//
+
 @Data  // Genera automáticamente getters, setters,
 // toString(), equals() y hashCode() para todos los atributos de la clase.
 @NoArgsConstructor // Genera un constructor sin argumentos (constructor vacío).
@@ -38,14 +38,15 @@ public class SocioCreateRequestDto {
     // En este caso deberia cumplir que sean digitos y que tengas una longitud de 8 digitos
 
     @NotBlank(message="El DNI es requerido")
-    @Pattern( regexp = "\\d{8}", message= "El DNI debe tener exactamente 8 digitos numericos")
+    @Pattern( regexp = "d{8}", message= "El DNI debe tener exactamente 8 digitos numericos")
     private String dni;
 
 
     @NotNull(message= "La fecha  de nacimiento es requerida")
-    // Past 
+    // Past \\
     @Past(message="La fecha de nacimiento  deberia ser una fecha anterior ")
     private LocalDate fechaNacimiento;
+    
     // Ahora deberia poner las restricicones del numero de telefono
 
     @NotBlank(message="El numero es requerido")
